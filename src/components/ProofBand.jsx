@@ -1,0 +1,3 @@
+const metrics = [['5+', 'years', 'frontend experience'], ['50K+', 'monthly', 'product users'], ['35%', 'faster', 'performance'], ['40%', 'smaller initial', 'bundle'], ['80%', 'fewer', 'accessibility issues']]
+
+export function ProofBand() { return <section className="bg-ink text-white"><div className="section-shell grid grid-cols-2 gap-6 py-7 md:grid-cols-3 md:py-8 lg:grid-cols-5">{metrics.map(([number, first, second]) => <div key={number} className="flex items-center gap-3 border-l border-[#48625c] pl-3 first:border-0 first:pl-0 md:gap-4 md:pl-5"><strong className="font-display text-3xl text-lime md:text-4xl">{number}</strong><span className="text-[11px] leading-tight text-[#a2b4ae]">{first}<br />{second}</span></div>)}</div></section> }

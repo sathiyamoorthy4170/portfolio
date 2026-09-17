@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --color-ink: #102d2b;
+  --color-muted: #61716d;
+  --color-paper: #f6f7f2;
+  --color-line: #dce3dc;
+  --color-lime: #d3f36b;
+  --color-teal: #0d7470;
+  --color-orange: #f29a61;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply m-0 bg-paper font-sans leading-relaxed text-ink antialiased; }
+  button, input, textarea { font: inherit; }
+}
+
+@layer components {
+  .section-shell { @apply mx-auto w-[min(1160px,calc(100%-40px))] md:w-[min(1160px,calc(100%-64px))]; }
+  .display { @apply font-display tracking-[-.055em] leading-[1.04]; }
+  .eyebrow { @apply mb-6 font-display text-[11px] font-bold uppercase tracking-[.12em] text-teal; }
+  .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1); transition-delay: var(--reveal-delay, 0ms); }
+  .scroll-reveal.is-visible { opacity: 1; transform: none; }
+  .work-card-hover { transition: transform .25s cubic-bezier(.22,1,.36,1), box-shadow .25s ease; }
+  .work-card-hover:hover { transform: translateY(-4px); }
+  a, button { transition: color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+}
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .scroll-reveal { opacity: 1; transform: none; transition: none; } .work-card-hover:hover { transform: none; } a, button { transition: none; } }
